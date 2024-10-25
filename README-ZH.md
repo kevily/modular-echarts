@@ -1,15 +1,15 @@
 # rc-echarts
-English | [中文](./README-ZH.md)
+[English](./README.md) | 中文
 
-> Component based ECharts for react.
+> 基于React组件化的ECharts
 
-## Install
+## 安装
 ```shell
 npm i rc-echarts
 pnpm i rc-echarts
 ```
 
-## Use
+## 使用
 ```tsx
 import { ReactECharts, XAxis, YAxis, Tooltip, Title, LineSeries, Legend  } from 'rc-echarts'
 
@@ -32,7 +32,8 @@ function Demo() {
 }
 ```
 
-## Customize chart
+
+## 自定义图表
 ```tsx
 import * as echarts from 'echarts/core'
 import { LineChart, type LineSeriesOption } from 'echarts/charts'

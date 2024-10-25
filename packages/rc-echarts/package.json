@@ -1,0 +1,55 @@
+{
+    "name": "rc-echarts",
+    "version": "1.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
+        "up:storybook": "pnpm up storybook eslint-plugin-storybook @storybook/* -L"
+    },
+    "files": [
+        "dist"
+    ],
+    "keywords": [
+        "react",
+        "react component",
+        "echarts",
+        "react echarts"
+    ],
+    "author": "1k",
+    "license": "ISC",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "peerDependencies": {
+        "react": "18.3.1",
+        "react-dom": "18.3.1"
+    },
+    "devDependencies": {
+        "@types/lodash-es": "4.17.12",
+        "@types/react": "18.3.3",
+        "@types/react-dom": "18.3.0",
+        "@typescript-eslint/eslint-plugin": "7.0.2",
+        "@typescript-eslint/parser": "7.0.2",
+        "eslint": "8.56.0",
+        "eslint-import-resolver-typescript": "3.6.1",
+        "eslint-plugin-import": "2.29.1",
+        "eslint-plugin-react": "7.33.2",
+        "eslint-plugin-react-hooks": "4.6.0",
+        "eslint-plugin-storybook": "0.8.0",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "stylelint": "16.8.1",
+        "stylelint-config-standard": "36.0.1",
+        "typescript": "5.5.2"
+    },
+    "dependencies": {
+        "define-zustand": "3.1.1",
+        "echarts": "5.5.1",
+        "lodash-es": "4.17.21"
+    }
+}

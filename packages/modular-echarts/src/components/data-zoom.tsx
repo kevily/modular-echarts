@@ -1,7 +1,7 @@
 import { FunctionComponent, useMemo } from 'react'
 import * as echarts from 'echarts/core'
 import { DataZoomComponent } from 'echarts/components'
-import { PickObjType, ECOptionType } from '../rc-echarts.type'
+import { PickObjType, ECOptionType } from '../modular-echarts.type'
 import { ListDataComponent } from './list-data-component'
 
 echarts.use([DataZoomComponent])

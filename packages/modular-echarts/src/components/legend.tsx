@@ -2,8 +2,8 @@ import { memo, useEffect, useRef } from 'react'
 import * as echarts from 'echarts/core'
 import { LegendComponent } from 'echarts/components'
 import { noop } from 'lodash-es'
-import { ECOptionType, PickObjType } from '../rc-echarts.type'
-import { useContext } from '../rc-echarts.model'
+import { ECOptionType, PickObjType } from '../modular-echarts.type'
+import { useContext } from '../modular-echarts.model'
 import { ListDataComponent } from './list-data-component'
 
 echarts.use([LegendComponent])

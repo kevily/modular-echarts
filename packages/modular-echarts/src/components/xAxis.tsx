@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { ECOptionType, PickObjType } from '../rc-echarts.type'
+import { ECOptionType, PickObjType } from '../modular-echarts.type'
 import { ListDataComponent } from './list-data-component'
 
 export type XAxisPropsType = PickObjType<NonNullable<ECOptionType['xAxis']>>

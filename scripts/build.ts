@@ -18,4 +18,4 @@ async function build(lib: string) {
     task.run({ sync: true, tip: `buliding ${lib}...` })
 }
 
-build('rc-echarts')
+build('modular-echarts')

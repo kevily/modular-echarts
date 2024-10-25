@@ -4,8 +4,8 @@ import { GridComponent, DatasetComponent, TransformComponent } from 'echarts/com
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 import { omit } from 'lodash-es'
-import { Provider, useContext } from '../rc-echarts.model'
-import { ECOptionType } from '../rc-echarts.type'
+import { Provider, useContext } from '../modular-echarts.model'
+import { ECOptionType } from '../modular-echarts.type'
 
 echarts.use([
     GridComponent,

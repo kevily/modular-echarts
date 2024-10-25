@@ -1,6 +1,6 @@
 import * as echarts from 'echarts/core'
 import { defineContext } from 'define-zustand'
-import { ECOptionType, PickArrayType } from './rc-echarts.type'
+import { ECOptionType, PickArrayType } from './modular-echarts.type'
 
 export const { useContext, Provider } = defineContext({
     state: () => ({

@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from 'react'
 import { isNumber, pullAt } from 'lodash-es'
-import { useContext } from '../rc-echarts.model'
+import { useContext } from '../modular-echarts.model'
 
 export interface ListDataComponentPropsType {
     dataKey: string

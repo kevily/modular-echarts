@@ -1,5 +1,5 @@
 {
-    "name": "rc-echarts",
+    "name": "modular-echarts",
     "version": "1.0.2",
     "description": "",
     "main": "dist/index.js",
@@ -10,21 +10,11 @@
         "build-storybook": "storybook build",
         "up:storybook": "pnpm up storybook eslint-plugin-storybook @storybook/* -L"
     },
-    "files": [
-        "dist"
-    ],
-    "keywords": [
-        "react",
-        "react component",
-        "echarts",
-        "react echarts"
-    ],
+    "files": ["dist"],
+    "keywords": ["react", "react component", "echarts", "react echarts"],
     "author": "1k",
     "license": "ISC",
-    "sideEffects": [
-        "*.css",
-        "*.scss"
-    ],
+    "sideEffects": ["*.css", "*.scss"],
     "peerDependencies": {
         "react": "18.3.1",
         "react-dom": "18.3.1"

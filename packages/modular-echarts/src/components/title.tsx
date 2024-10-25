@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import * as echarts from 'echarts/core'
 import { TitleComponent } from 'echarts/components'
-import { ECOptionType, PickObjType } from '../rc-echarts.type'
+import { ECOptionType, PickObjType } from '../modular-echarts.type'
 import { ListDataComponent } from './list-data-component'
 
 echarts.use([TitleComponent])

@@ -50,15 +50,17 @@ const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props =>
     }, [props.autoResize, rootRef.current])
 
     useEffect(() => {
-        echartsRef.current = echarts.init(rootRef.current, props.theme, props.initOpts)
-        setState({ echartsInstance: echartsRef.current })
-        props.onInited?.(echartsRef.current)
+        if (echartsRef.current) {
+            echartsRef.current = echarts.init(rootRef.current, props.theme, props.initOpts)
+            setState({ echartsInstance: echartsRef.current })
+            props.onInited?.(echartsRef.current)
+        }
 
         return () => {
             echartsRef.current = void 0
             setState({ echartsInstance: void 0 })
         }
-    }, [])
+    }, [echartsRef.current])
 
     useEffect(() => {
         echartsRef.current?.setOption({

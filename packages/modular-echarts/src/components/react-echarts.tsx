@@ -1,9 +1,9 @@
-import { FunctionComponent, useEffect, useRef, ReactNode, CSSProperties } from 'react'
+import { FunctionComponent, useEffect, useRef, ReactNode, CSSProperties, useMemo } from 'react'
 import * as echarts from 'echarts/core'
 import { GridComponent, DatasetComponent, TransformComponent } from 'echarts/components'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
-import { omit } from 'lodash-es'
+import { omit, debounce, DebounceSettings } from 'lodash-es'
 import { Provider, useContext } from '../modular-echarts.model'
 import { ECOptionType } from '../modular-echarts.type'
 
@@ -27,6 +27,8 @@ export interface ReactEChartsPropsType extends Pick<ECOptionType, 'grid'> {
     animation?: boolean
     /** @default true */
     autoResize?: boolean
+    /** @default debounce.wait=200 */
+    debounce?: false | ({ wait: number } & DebounceSettings)
 }
 
 const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props => {
@@ -35,6 +37,15 @@ const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props =>
     const echartsRef = useRef<echarts.ECharts>()
     const setState = useContext(state => state.setState)
     const option = useContext(state => state.option)
+    const setOption = useMemo(() => {
+        const fn = (option: echarts.EChartsCoreOption) => {
+            echartsRef.current?.setOption(option, { notMerge: true, lazyUpdate: true })
+        }
+        if (props.debounce === false) {
+            return fn
+        }
+        return debounce(fn, props.debounce?.wait ?? 200, omit(props.debounce, 'wait'))
+    }, [props.debounce])
 
     useEffect(() => {
         const resizeObserver = new ResizeObserver(() => {
@@ -57,18 +68,14 @@ const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props =>
         }
 
         return () => {
+            echartsRef.current?.dispose()
             echartsRef.current = void 0
             setState({ echartsInstance: void 0 })
         }
     }, [echartsRef.current])
 
     useEffect(() => {
-        echartsRef.current?.setOption({
-            ...option,
-            grid: props.grid,
-            color: props.colors,
-            animation: props.animation
-        })
+        setOption({ ...option, grid: props.grid, color: props.colors, animation: props.animation })
     }, [option, props.grid, props.colors, props.animation])
 
     return <div ref={rootRef} style={props.style} className={props.className} />

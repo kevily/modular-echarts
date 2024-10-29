@@ -3,7 +3,7 @@ import * as echarts from 'echarts/core'
 import { GridComponent, DatasetComponent, TransformComponent } from 'echarts/components'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
-import { omit, debounce, DebounceSettings } from 'lodash-es'
+import { omit, debounce, DebounceSettings, pick } from 'lodash-es'
 import { Provider, useContext } from '../modular-echarts.model'
 import { ECOptionType } from '../modular-echarts.type'
 
@@ -61,7 +61,7 @@ const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props =>
     }, [props.autoResize, rootRef.current])
 
     useEffect(() => {
-        if (echartsRef.current) {
+        if (rootRef.current) {
             echartsRef.current = echarts.init(rootRef.current, props.theme, props.initOpts)
             setState({ echartsInstance: echartsRef.current })
             props.onInited?.(echartsRef.current)
@@ -72,10 +72,10 @@ const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props =>
             echartsRef.current = void 0
             setState({ echartsInstance: void 0 })
         }
-    }, [echartsRef.current])
+    }, [rootRef.current])
 
     useEffect(() => {
-        setOption({ ...option, grid: props.grid, color: props.colors, animation: props.animation })
+        setOption({ ...option, ...pick(props, ['grid', 'colors', 'animation']) })
     }, [option, props.grid, props.colors, props.animation])
 
     return <div ref={rootRef} style={props.style} className={props.className} />

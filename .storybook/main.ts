@@ -9,7 +9,7 @@ function createStories(lib: string): string[] {
 }
 
 const config: StorybookConfig = {
-    stories: [...createStories('rc-echarts')],
+    stories: [...createStories('modular-echarts')],
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',

@@ -23,7 +23,7 @@ export interface ReactEChartsPropsType extends Pick<ECOptionType, 'grid'> {
     onInited?: (echartsInstance: echarts.ECharts) => void
     theme?: string
     initOpts?: echarts.EChartsInitOpts
-    colors?: echarts.EChartsCoreOption['color']
+    color?: echarts.EChartsCoreOption['color']
     animation?: boolean
     /** @default true */
     autoResize?: boolean
@@ -75,8 +75,8 @@ const ReactEChartsComponent: FunctionComponent<ReactEChartsPropsType> = props =>
     }, [rootRef.current])
 
     useEffect(() => {
-        setOption({ ...option, ...pick(props, ['grid', 'colors', 'animation']) })
-    }, [option, props.grid, props.colors, props.animation])
+        setOption({ ...option, ...pick(props, ['grid', 'color', 'animation']) })
+    }, [option, props.grid, props.color, props.animation])
 
     return <div ref={rootRef} style={props.style} className={props.className} />
 }

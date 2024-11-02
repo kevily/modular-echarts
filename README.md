@@ -1,17 +1,17 @@
-# rc-echarts
+# modular-echarts
 English | [中文](./README-ZH.md)
 
 > Component based ECharts for react.
 
 ## Install
 ```shell
-npm i rc-echarts
-pnpm i rc-echarts
+npm i modular-echarts
+pnpm i modular-echarts
 ```
 
 ## Use
 ```tsx
-import { ReactECharts, XAxis, YAxis, Tooltip, Title, LineSeries, Legend  } from 'rc-echarts'
+import { ReactECharts, XAxis, YAxis, Tooltip, Title, LineSeries, Legend  } from 'modular-echarts'
 
 function Demo() {
     return (
@@ -37,7 +37,7 @@ function Demo() {
 import { memo } from 'react'
 import * as echarts from 'echarts/core'
 import { LineChart, type LineSeriesOption } from 'echarts/charts'
-import { useContext, ReactECharts, XAxis, YAxis, Tooltip, Title, LineSeries, Legend , ECOption, ListDataComponent } from 'rc-echarts'
+import { useContext, ReactECharts, XAxis, YAxis, Tooltip, Title, LineSeries, Legend , ECOption, ListDataComponent } from 'modular-echarts'
 
 echarts.use([LineChart])
 

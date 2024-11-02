@@ -34,14 +34,15 @@ function Demo() {
 
 ## Customize chart
 ```tsx
+import { memo } from 'react'
 import * as echarts from 'echarts/core'
 import { LineChart, type LineSeriesOption } from 'echarts/charts'
 import { useContext, ReactECharts, XAxis, YAxis, Tooltip, Title, LineSeries, Legend , ECOption, ListDataComponent } from 'rc-echarts'
 
 echarts.use([LineChart])
 
-const CustomLineSeries: FunctionComponent<Omit<LineSeriesOption, 'type'>> = prop => {
-    const option = useMemo(() => ({ type: 'line', ...props }), [props])
+const CustomLineSeries = memo<Omit<LineSeriesOption, 'type'>>(prop => {
+    const option = { type: 'line', ...props }
     const setState = useContext(state => state.setState)
     const index = useRef<number>()
 
@@ -65,13 +66,13 @@ const CustomLineSeries: FunctionComponent<Omit<LineSeriesOption, 'type'>> = prop
     }, [option])
 
     return null
-}
+})
 
-const CustomLineSeriesTwo: FunctionComponent<Omit<LineSeriesOption, 'type'>> = prop => {
-    const option = useMemo(() => ({ type: 'line', ...props }), [props])
+const CustomLineSeriesTwo = memo<Omit<LineSeriesOption, 'type'>>(prop => {
+    const option = { type: 'line', ...props }
 
     return <ListDataComponent dataKey='series' option={option} />
-}
+})
 
 function Demo() {
     return (
